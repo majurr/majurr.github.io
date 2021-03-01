@@ -26,7 +26,7 @@ EXTRA_PATH_METADATA = {
 TIMEZONE = 'America/Sao_Paulo'
 
 DEFAULT_LANG = 'en'
-THEME = 'theme/flex'
+THEME = 'theme'
 
 I18N_TEMPLATES_LANG = "en"
 DEFAULT_LANG = "en"
