@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 
 AUTHOR = 'Mário N Jhunior'
-SITEURL = ''
+# SITEURL = ''
 SITENAME = "{'devjhunior'}  | Notas de um desenvolvedor"
 SITETITLE = "{'devjhunior'}"
 SITESUBTITLE = "notas de um desenvolvedor"
