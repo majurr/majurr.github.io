@@ -1,2 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>{'devjhunior'} | Notas de um desenvolvedor</title><link href="https://devjhunior.github.io/" rel="alternate"></link><link href="https://devjhunior.github.io/feeds/all.atom.xml" rel="self"></link><id>https://devjhunior.github.io/</id><updated>2021-03-01T12:41:24Z</updated><subtitle>notas de um desenvolvedor</subtitle></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>{'devjhunior'} | Notas de um desenvolvedor</title><link href="https://devjhunior.github.io/" rel="alternate"></link><link href="https://devjhunior.github.io/feeds/all.atom.xml" rel="self"></link><id>https://devjhunior.github.io/</id><updated>2021-03-01T00:00:00-03:00</updated><subtitle>notas de um desenvolvedor</subtitle><entry><title>Pyenv | Múltiplas versões python</title><link href="https://devjhunior.github.io/pyenv-multiplas-versoes-python.html" rel="alternate"></link><published>2021-03-01T00:00:00-03:00</published><updated>2021-03-01T00:00:00-03:00</updated><author><name>Mário N Jhúnior</name></author><id>tag:devjhunior.github.io,2021-03-01:/pyenv-multiplas-versoes-python.html</id><summary type="html">&lt;h1&gt;pyenv?&lt;/h1&gt;
+&lt;h3&gt;O que? Como? Pra que?&lt;br&gt;&lt;br&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="pyenv" src="../images/pyenv.png"&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Toda necessidade surge de um problema. Pelo menos é assim onde eu trabalho. E o nosso problema é gerenciar vários sites, ou projetos, onde cada um tem a necessidade de usar versões do python diferentes (vide imagem).&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Portanto, quando alguns dos projetos no qual …&lt;/p&gt;</summary><content type="html">&lt;h1&gt;pyenv?&lt;/h1&gt;
+&lt;h3&gt;O que? Como? Pra que?&lt;br&gt;&lt;br&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img alt="pyenv" src="../images/pyenv.png"&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Toda necessidade surge de um problema. Pelo menos é assim onde eu trabalho. E o nosso problema é gerenciar vários sites, ou projetos, onde cada um tem a necessidade de usar versões do python diferentes (vide imagem).&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Portanto, quando alguns dos projetos no qual trabalho em python começou a apresentar problemas após algumas atualizações de distros (distribuições=sistemas operacionais) linux, comecei a buscar soluções, daí surgiu um nome que até então não conhecia – pyenv.&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;Para esse post não ficar maçante e cansativo, abordarei quatro pontos:&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;O que é?&lt;/li&gt;
+&lt;li&gt;Porque usar?&lt;/li&gt;
+&lt;li&gt;Instalação&lt;/li&gt;
+&lt;li&gt;Como usar&lt;br&gt;&lt;br&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;O que é pyenv?&lt;/h2&gt;
+&lt;p&gt;Sem delongas, pyenv é um poderoso gerenciador de versões do python. Trocando em miúdos, pyenv te permite de maneira simples e fácil instalar diversas versões do python e alternar entre elas, criar vários ambientes virtuais de cada versão.&lt;/p&gt;
+&lt;p&gt;De fato ele é simples e fácil. Faz o seu trabalho muito bem.&lt;/p&gt;
+&lt;h2&gt;Porque usar?&lt;/h2&gt;
+&lt;p&gt;Imagine que você tem uma distribuição linux que por default vem com o python 3.8.5 e por algum motivo você precisa instalar a versão 3.6.6 do python, porque o pacote principal do seu projeto não foi atualizado para a versão atual, até o momento, do python. Ou porque, como já aconteceu comigo, no Raspberry Pi, as libs só eram funcionais no raspberry até a versão 3.7.2 do python.&lt;/p&gt;
+&lt;p&gt;Por um motivo ou outro você precisa instalar uma versão diferente do python. Projeto rodando e depois de atualizações dos pacotes do sistema operacional o projeto parou.&lt;/p&gt;
+&lt;p&gt;O que quero dizer é que usar o python do sistema é um passo arriscado. Além de que outras partes do sistema operacional usam o python massivamente, o que torna ainda mais perigoso. O que fazer então? Usar o pyenv para baixar de forma isolada as versões do python que você necessita e trabalhar despreocupado sem risco de quebrar seu sistema operacional ou de uma possível atualização quebrar o seu projeto. Então vamos ao pyenv!!!&lt;/p&gt;
+&lt;h2&gt;Instalação.&lt;/h2&gt;
+&lt;p&gt;Atenção: essa forma de instalação foi testada apenas em distribuições linux.&lt;/p&gt;
+&lt;p&gt;A forma recomendada e na minha vivência a mais fácil foi executando no meu shell o comando abaixo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;curl https://pyenv.run | bash&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;O comando acima instalará o pyenv junto com os plugins abaixo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;O&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;aplicativo&lt;/span&gt; &lt;span class="n"&gt;real&lt;/span&gt;
+&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;virtualenv&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Plugin&lt;/span&gt; &lt;span class="n"&gt;para&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;ambientes&lt;/span&gt; &lt;span class="n"&gt;virtuais&lt;/span&gt;
+&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;update&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Plugin&lt;/span&gt; &lt;span class="n"&gt;para&lt;/span&gt; &lt;span class="n"&gt;atualização&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt;
+&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;doctor&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Plugin&lt;/span&gt; &lt;span class="n"&gt;para&lt;/span&gt; &lt;span class="n"&gt;verificar&lt;/span&gt; &lt;span class="n"&gt;se&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;dependências&lt;/span&gt; &lt;span class="n"&gt;de&lt;/span&gt; &lt;span class="n"&gt;compilação&lt;/span&gt; &lt;span class="n"&gt;estão&lt;/span&gt; &lt;span class="n"&gt;instaladas&lt;/span&gt;
+&lt;span class="n"&gt;pyenv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;which&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ext&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Plug&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;para&lt;/span&gt; &lt;span class="n"&gt;pesquisar&lt;/span&gt; &lt;span class="n"&gt;comandos&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;sistema&lt;/span&gt; &lt;span class="n"&gt;automaticamente&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;No final da execução do script será mostrada as instruções abaixo:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;WARNING&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;seems&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;still&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;pyenv&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;load&lt;/span&gt; &lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Load&lt;/span&gt; &lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="n"&gt;automatically&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt; &lt;span class="n"&gt;adding&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;following&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="o"&gt;~/.&lt;/span&gt;&lt;span class="n"&gt;bashrc&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;$HOME/.pyenv/bin:$PATH&amp;quot;&lt;/span&gt;
+&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$(pyenv init -)&amp;quot;&lt;/span&gt;
+&lt;span class="nf"&gt;eval&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$(pyenv virtualenv-init -)&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Adicione as três últimas linhas da instrução nos arquivos abaixo a depender do shell que estiver usando. Após abrir o arquivo para editar, copie e cole as três ultimas linhas acima.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;nano ~/.bash_profile&lt;/span&gt;
+&lt;span class="err"&gt;nano ~/.bashrc&lt;/span&gt;
+&lt;span class="err"&gt;nano~/.zshrc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;O próximo passo é atualizar o terminal para que o comando pyenv possa ser executado de qualquer diretório.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;exec &amp;quot;$SHELL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Se tudo ocorreu bem, você será capaz de digitar&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pyenv versions&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;O comando acima irá mostrar todas as versões do python instalada em sua máquina.&lt;/p&gt;
+&lt;h2&gt;Como usar&lt;/h2&gt;
+&lt;p&gt;A primeira coisa que precisamos fazer ao instalar o pyenv é também instalar a versão do python que desejamos usar. Mas como saber quais versões estão disponíveis? Simplesmente pedindo para o pyenv listar.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pyenv install -l&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;ou&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pyenv install --list&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Após identificar na lista a versão do python que deseja usar, instale-a.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pyenv install 3.8.5&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Verifique a versão instalada [o comando exibe todas as outras existentes].&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pyenv versions&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora que temos a versão, ou as versões que desejamos trabalhar instaladas, vamos criar um ambiente virtual para isolarmos nossas dependências (pacotes python).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;pyenv virtualenv 3.8.5 nome_venv&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Agora vamos atribuir o ambiente virtual criado ao nosso projeto. Para isso entre no diretório do seu projeto e execute o comando abaixo.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;projeto&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;prjTeste&lt;/span&gt;
+
+&lt;span class="n"&gt;pyenv&lt;/span&gt; &lt;span class="k"&gt;local&lt;/span&gt; &lt;span class="n"&gt;nome_venv&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;O comando pyenv local cria um arquivo .python-version que ativa automaticamente seu ambiente virtual toda vez que você entrar no diretório do projeto, na versão específica com que foi criado o ambiente.&lt;/p&gt;
+&lt;p&gt;Agora é só agitar e usar. (risos…)&lt;/p&gt;
+&lt;p&gt;Esse é um modo de uso básico, como eu utilizo no dia a dia. Mas pyenv é mais que isso. Há outros comandos que talvez seja útil para você leitor, mas como o blog diz. Essas são notas do meu dia a dia.&lt;/p&gt;
+&lt;p&gt;Deseja saber mais sobre pyenv?&lt;br&gt;
+Segue os links, dos quais extraí conteúdos para aprender a usar e para escrever esse post.&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;a href="https://realpython.com/intro-to-pyenv/"&gt;Real Python&lt;/a&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;a href="https://github.com/pyenv/pyenv"&gt;GitHub&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;br&gt;Espero ter ajudado e até a próxima nota do dia.&lt;/p&gt;</content><category term="Python"></category><category term="python"></category><category term="programação"></category><category term="desenvolvimento"></category><category term="software"></category></entry></feed>
