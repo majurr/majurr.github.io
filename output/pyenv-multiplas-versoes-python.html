@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet/less" type="text/css" href="/theme/stylesheet/style.less">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.1/less.min.js" type="text/javascript"></script>
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+
+
+
+  
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#333333">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#333333">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Microsoft EDGE -->
+    <meta name="msapplication-TileColor" content="#333333">
+
+<meta name="author" content="Mário N Jhúnior" />
+<meta name="description" content="pyenv? O que? Como? Pra que? Toda necessidade surge de um problema. Pelo menos é assim onde eu trabalho. E o nosso problema é gerenciar vários sites, ou projetos, onde cada um tem a necessidade de usar versões do python diferentes (vide imagem). Portanto, quando alguns dos projetos no qual …" />
+<meta name="keywords" content="python, programação, desenvolvimento, software">
+
+
+<meta property="og:site_name" content="{'devjhunior'}  | Notas de um desenvolvedor"/>
+<meta property="og:title" content="Pyenv | Múltiplas versões python"/>
+<meta property="og:description" content="pyenv? O que? Como? Pra que? Toda necessidade surge de um problema. Pelo menos é assim onde eu trabalho. E o nosso problema é gerenciar vários sites, ou projetos, onde cada um tem a necessidade de usar versões do python diferentes (vide imagem). Portanto, quando alguns dos projetos no qual …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/pyenv-multiplas-versoes-python.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2021-03-01 00:00:00-03:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/mario-n-jhunior.html">
+<meta property="article:section" content="Python"/>
+<meta property="article:tag" content="python"/>
+<meta property="article:tag" content="programação"/>
+<meta property="article:tag" content="desenvolvimento"/>
+<meta property="article:tag" content="software"/>
+<meta property="og:image" content="">
+
+  <title>{'devjhunior'}  | Notas de um desenvolvedor &ndash; Pyenv | Múltiplas versões python</title>
+
+</head>
+<body >
+  <aside>
+    <div>
+      <a href="">
+        <img src="/theme/img/profile.png" alt="{'devjhunior'}" title="{'devjhunior'}">
+      </a>
+
+      <h1>
+        <a href="">{'devjhunior'}</a>
+      </h1>
+
+<p>notas de um desenvolvedor</p>
+
+      <nav>
+        <ul class="list">
+
+
+              <li>
+                <a target="_self"
+                   href="/pages/contato.html#contato">
+                  Contatos
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="/pages/portifolio.html#portifolio">
+                  Portifólio
+                </a>
+              </li>
+              <li>
+                <a target="_self"
+                   href="/pages/sobre-mim.html#sobre-mim">
+                  Mario Jhunior
+                </a>
+              </li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-github" href="https://github.com/devjhunior" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-linkedin" href="https://www.linkedin.com/in/marionascimentojunior" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="pyenv-multiplas-versoes-python">Pyenv | Múltiplas versões python</h1>
+    <p>
+      Posted on Mon 01 March 2021 in <a href="/category/python.html">Python</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>pyenv?</h1>
+<h3>O que? Como? Pra que?<br><br></h3>
+<p><img alt="pyenv" src="../images/pyenv.png"><br><br></p>
+<p>Toda necessidade surge de um problema. Pelo menos é assim onde eu trabalho. E o nosso problema é gerenciar vários sites, ou projetos, onde cada um tem a necessidade de usar versões do python diferentes (vide imagem).<br><br></p>
+<p>Portanto, quando alguns dos projetos no qual trabalho em python começou a apresentar problemas após algumas atualizações de distros (distribuições=sistemas operacionais) linux, comecei a buscar soluções, daí surgiu um nome que até então não conhecia – pyenv.<br><br></p>
+<p>Para esse post não ficar maçante e cansativo, abordarei quatro pontos:<br><br></p>
+<ol>
+<li>O que é?</li>
+<li>Porque usar?</li>
+<li>Instalação</li>
+<li>Como usar<br><br></li>
+</ol>
+<h2>O que é pyenv?</h2>
+<p>Sem delongas, pyenv é um poderoso gerenciador de versões do python. Trocando em miúdos, pyenv te permite de maneira simples e fácil instalar diversas versões do python e alternar entre elas, criar vários ambientes virtuais de cada versão.</p>
+<p>De fato ele é simples e fácil. Faz o seu trabalho muito bem.</p>
+<h2>Porque usar?</h2>
+<p>Imagine que você tem uma distribuição linux que por default vem com o python 3.8.5 e por algum motivo você precisa instalar a versão 3.6.6 do python, porque o pacote principal do seu projeto não foi atualizado para a versão atual, até o momento, do python. Ou porque, como já aconteceu comigo, no Raspberry Pi, as libs só eram funcionais no raspberry até a versão 3.7.2 do python.</p>
+<p>Por um motivo ou outro você precisa instalar uma versão diferente do python. Projeto rodando e depois de atualizações dos pacotes do sistema operacional o projeto parou.</p>
+<p>O que quero dizer é que usar o python do sistema é um passo arriscado. Além de que outras partes do sistema operacional usam o python massivamente, o que torna ainda mais perigoso. O que fazer então? Usar o pyenv para baixar de forma isolada as versões do python que você necessita e trabalhar despreocupado sem risco de quebrar seu sistema operacional ou de uma possível atualização quebrar o seu projeto. Então vamos ao pyenv!!!</p>
+<h2>Instalação.</h2>
+<p>Atenção: essa forma de instalação foi testada apenas em distribuições linux.</p>
+<p>A forma recomendada e na minha vivência a mais fácil foi executando no meu shell o comando abaixo.</p>
+<div class="highlight"><pre><span></span><code><span class="err">curl https://pyenv.run | bash</span>
+</code></pre></div>
+
+<p>O comando acima instalará o pyenv junto com os plugins abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pyenv</span><span class="o">:</span> <span class="n">O</span> <span class="n">pyenv</span> <span class="n">aplicativo</span> <span class="n">real</span>
+<span class="n">pyenv</span><span class="o">-</span><span class="n">virtualenv</span><span class="o">:</span> <span class="n">Plugin</span> <span class="n">para</span> <span class="n">pyenv</span> <span class="n">ambientes</span> <span class="n">virtuais</span>
+<span class="n">pyenv</span><span class="o">-</span><span class="n">update</span><span class="o">:</span> <span class="n">Plugin</span> <span class="n">para</span> <span class="n">atualização</span> <span class="n">pyenv</span>
+<span class="n">pyenv</span><span class="o">-</span><span class="n">doctor</span><span class="o">:</span> <span class="n">Plugin</span> <span class="n">para</span> <span class="n">verificar</span> <span class="n">se</span> <span class="k">as</span> <span class="n">pyenv</span> <span class="n">dependências</span> <span class="n">de</span> <span class="n">compilação</span> <span class="n">estão</span> <span class="n">instaladas</span>
+<span class="n">pyenv</span><span class="o">-</span><span class="n">which</span><span class="o">-</span><span class="n">ext</span><span class="o">:</span> <span class="n">Plug</span><span class="o">-</span><span class="k">in</span> <span class="n">para</span> <span class="n">pesquisar</span> <span class="n">comandos</span> <span class="k">do</span> <span class="n">sistema</span> <span class="n">automaticamente</span>
+</code></pre></div>
+
+<p>No final da execução do script será mostrada as instruções abaixo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">WARNING</span><span class="o">:</span> <span class="n">seems</span> <span class="n">you</span> <span class="n">still</span> <span class="n">have</span> <span class="n">not</span> <span class="n">added</span> <span class="s1">&#39;pyenv&#39;</span> <span class="n">to</span> <span class="n">the</span> <span class="n">load</span> <span class="n">path</span><span class="o">.</span>
+
+<span class="err">#</span> <span class="n">Load</span> <span class="n">pyenv</span> <span class="n">automatically</span> <span class="n">by</span> <span class="n">adding</span>
+<span class="err">#</span> <span class="n">the</span> <span class="n">following</span> <span class="n">to</span> <span class="o">~/.</span><span class="n">bashrc</span><span class="o">:</span>
+
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="s2">&quot;$HOME/.pyenv/bin:$PATH&quot;</span>
+<span class="nf">eval</span> <span class="s2">&quot;$(pyenv init -)&quot;</span>
+<span class="nf">eval</span> <span class="s2">&quot;$(pyenv virtualenv-init -)&quot;</span>
+</code></pre></div>
+
+<p>Adicione as três últimas linhas da instrução nos arquivos abaixo a depender do shell que estiver usando. Após abrir o arquivo para editar, copie e cole as três ultimas linhas acima.</p>
+<div class="highlight"><pre><span></span><code><span class="err">nano ~/.bash_profile</span>
+<span class="err">nano ~/.bashrc</span>
+<span class="err">nano~/.zshrc</span>
+</code></pre></div>
+
+<p>O próximo passo é atualizar o terminal para que o comando pyenv possa ser executado de qualquer diretório.</p>
+<div class="highlight"><pre><span></span><code><span class="err">exec &quot;$SHELL</span>
+</code></pre></div>
+
+<p>Se tudo ocorreu bem, você será capaz de digitar</p>
+<div class="highlight"><pre><span></span><code><span class="err">pyenv versions</span>
+</code></pre></div>
+
+<p>O comando acima irá mostrar todas as versões do python instalada em sua máquina.</p>
+<h2>Como usar</h2>
+<p>A primeira coisa que precisamos fazer ao instalar o pyenv é também instalar a versão do python que desejamos usar. Mas como saber quais versões estão disponíveis? Simplesmente pedindo para o pyenv listar.</p>
+<div class="highlight"><pre><span></span><code><span class="err">pyenv install -l</span>
+</code></pre></div>
+
+<p>ou</p>
+<div class="highlight"><pre><span></span><code><span class="err">pyenv install --list</span>
+</code></pre></div>
+
+<p>Após identificar na lista a versão do python que deseja usar, instale-a.</p>
+<div class="highlight"><pre><span></span><code><span class="err">pyenv install 3.8.5</span>
+</code></pre></div>
+
+<p>Verifique a versão instalada [o comando exibe todas as outras existentes].</p>
+<div class="highlight"><pre><span></span><code><span class="err">pyenv versions</span>
+</code></pre></div>
+
+<p>Agora que temos a versão, ou as versões que desejamos trabalhar instaladas, vamos criar um ambiente virtual para isolarmos nossas dependências (pacotes python).</p>
+<div class="highlight"><pre><span></span><code><span class="err">pyenv virtualenv 3.8.5 nome_venv</span>
+</code></pre></div>
+
+<p>Agora vamos atribuir o ambiente virtual criado ao nosso projeto. Para isso entre no diretório do seu projeto e execute o comando abaixo.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">projeto</span><span class="o">/</span><span class="n">prjTeste</span>
+
+<span class="n">pyenv</span> <span class="k">local</span> <span class="n">nome_venv</span>
+</code></pre></div>
+
+<p>O comando pyenv local cria um arquivo .python-version que ativa automaticamente seu ambiente virtual toda vez que você entrar no diretório do projeto, na versão específica com que foi criado o ambiente.</p>
+<p>Agora é só agitar e usar. (risos…)</p>
+<p>Esse é um modo de uso básico, como eu utilizo no dia a dia. Mas pyenv é mais que isso. Há outros comandos que talvez seja útil para você leitor, mas como o blog diz. Essas são notas do meu dia a dia.</p>
+<p>Deseja saber mais sobre pyenv?<br>
+Segue os links, dos quais extraí conteúdos para aprender a usar e para escrever esse post.<br><br></p>
+<h3><a href="https://realpython.com/intro-to-pyenv/">Real Python</a></h3>
+<h3><a href="https://github.com/pyenv/pyenv">GitHub</a></h3>
+<p><br>Espero ter ajudado e até a próxima nota do dia.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/python.html">python</a>
+      <a href="/tag/programacao.html">programação</a>
+      <a href="/tag/desenvolvimento.html">desenvolvimento</a>
+      <a href="/tag/software.html">software</a>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+  <span class="footer-separator">|</span>
+  Switch to the <a href="javascript:void(0)" onclick="theme.switch(`dark`)">dark</a> | <a href="javascript:void(0)" onclick="theme.switch(`light`)">light</a> | <a href="javascript:void(0)" onclick="theme.switch(`browser`)">browser</a> theme
+  <script id="dark-theme-script"
+          src="/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " {'devjhunior'}  | Notas de um desenvolvedor ",
+  "url" : "",
+  "image": "",
+  "description": "devjhunior | notas de um desenvolvedor"
+}
+</script>
+
+
+</body>
+</html>
